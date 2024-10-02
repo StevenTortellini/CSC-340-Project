@@ -26,6 +26,15 @@
       bottom: 0;
       width: 100%;
     }
+
+    .about-us, .report-problem {
+      padding: 40px 0;
+      text-align: center;
+    }
+
+    .report-btn {
+      margin: 20px;
+    }
   </style>
 </head>
 
@@ -53,8 +62,8 @@
           YouSell
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">About Us</a>
-          <a class="dropdown-item" href="#">Report</a>
+          <a class="dropdown-item" href="#about-us-section">About Us</a>
+          <a class="dropdown-item" href="#report-problem-section">Report a Problem</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="userProfile.html">User Profile</a>
         </div>
@@ -96,6 +105,29 @@
   <p>Your one-stop marketplace for buying and selling goods. Discover amazing deals or list your items today!</p>
 </div>
 
+<!-- About Us Section -->
+<section id="about-us-section" class="about-us">
+  <div class="container">
+    <h2>About Us</h2>
+    <p>YouSell is a dynamic platform connecting buyers and sellers in an easy-to-use, safe environment. We aim to make online commerce seamless, whether you're looking to find great deals or sell your items to a vast audience. Our commitment is to provide a trusted and user-friendly space for online transactions.</p>
+  </div>
+</section>
+
+<!-- Report a Problem Section -->
+<section id="report-problem-section" class="report-problem bg-light">
+  <div class="container">
+    <h2>Report a Problem</h2>
+    <p>If you're experiencing any issues, please let us know by filling out the form below.</p>
+    <form id="report-form">
+      <div class="form-group">
+        <label for="problem-description">Describe the issue:</label>
+        <textarea class="form-control" id="problem-description" rows="4" placeholder="Write your problem here..."></textarea>
+      </div>
+      <button type="submit" class="btn btn-danger report-btn">Submit Report</button>
+    </form>
+  </div>
+</section>
+
 <!-- Footer -->
 <div class="footer">
   <p>&copy; 2024 YouSell. All Rights Reserved.</p>
@@ -105,6 +137,21 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.6/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+  // Handle report form submission
+  document.getElementById('report-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const problemDescription = document.getElementById('problem-description').value;
+
+    if (problemDescription.trim() === "") {
+      alert("Please describe the problem before submitting.");
+    } else {
+      alert("Thank you for your report. Our team will look into it.");
+      document.getElementById('report-form').reset();
+    }
+  });
+</script>
 </body>
 
 </html>
