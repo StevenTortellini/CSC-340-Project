@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="userHome.html">Home</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="listings.html">Buy <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="sellpage.html">Sell</a>
+        <li class="nav-item">
+          <a class="nav-link" href="allMessages.html">Messages</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            YouSell
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">About Us</a>
+            <a class="dropdown-item" href="#">Report</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="userProfile.html">User Profile</a>
+          </div>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>YouSell Marketplace - Listings</title>
+
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  <link href="css/sb-admin-2.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gradient-light">
+
+<div class="container mt-5">
+  <div class="text-center mb-4">
+    <h1 class="h3 text-gray-900">Your Listings</h1>
+    <p>Your current and previous listings.</p>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4 mb-4">
+      <div class="card shadow h-100">
+        <form action="#" method="POST" enctype="multipart/form-data">
+          <div class="card-img-top text-center p-3">
+            <label for="productImage" class="form-label">Upload Product Image (PNG only)</label>
+            <input type="file" class="form-control" id="productImage" name="productImage" accept="image/png" required>
+          </div>
+
+          <div class="text-center">
+            <img id="imagePreview" src="#" alt="Image Preview" style="display: none; max-width: 100%; height: auto;" />
+          </div>
+
+          <div class="card-body">
+            <div class="mb-3">
+              <label for="productName" class="form-label">Product Name</label>
+              <input type="text" class="form-control" id="productName" name="productName" placeholder="Enter product name" required>
+            </div>
+            <div class="mb-3">
+              <label for="productPrice" class="form-label">Price ($)</label>
+              <input type="number" class="form-control" id="productPrice" name="productPrice" placeholder="Enter price" required>
+            </div>
+            <div class="mb-3">
+              <label for="productDescription" class="form-label">Product Description</label>
+              <textarea class="form-control" id="productDescription" name="productDescription" rows="3" placeholder="Enter description" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit Product</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+      <div class="card shadow h-100">
+        <div class="card-image-top text-center">
+        <img src="img/example1.jpg" class="card-img-top img-fluid" alt="Product 2" style="max-width: 60%;">
+        </div>
+        <div class="card-body pt-3">
+          <h5 class="card-title">Easy A+ Grade</h5>
+          <p class="card-text">Price: $ 1,000,000</p>
+          <p class="card-text">Description: A free A+ grade for your class.</p>
+          <a href="#" class="btn btn-primary">Edit Your Product</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+      <div class="card shadow h-100">
+        <div class="card-image-top text-center">
+          <img src="img/example2.jpg" class="card-img-top img-fluid" alt="Product 3" style="max-width: 60%;">
+        </div>        <div class="card-body">
+          <h5 class="card-title">Winning Ticket</h5>
+          <p class="card-text">Price: $ 100,000,000</p>
+          <p class="card-text">Description: A ticket that lets you win on anything in life once.</p>
+          <a href="#" class="btn btn-primary">Edit Your product</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr style="border: 3px solid #000; margin: 20px 0;">
+
+  <h4 class="h3 text-grey-900">Previous Listings</h4>
+  <div class="row">
+    <div class="col-md-4 mb-4">
+      <div class="card shadow h-100">
+        <div class="card-img-top text-center custom-img-container">
+          <img src="#" class="img-fluid" alt="Previous Listing 1" style="max-width: 80%;">
+        </div>
+        <div class="card-body pt-3">
+          <h5 class="card-title">Previous Listing 1</h5>
+          <p class="card-text">Price: $50</p>
+          <p class="card-text">Description: Great condition.</p>
+          <a href="#" class="btn btn-secondary">View Details</a>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-md-4 mb-4">
+      <div class="card shadow h-100">
+        <div class="card-img-top text-center custom-img-container">
+          <img src="#" class="img-fluid" alt="Previous Listing 2" style="max-width: 80%;">
+        </div>
+        <div class="card-body pt-3">
+          <h5 class="card-title">Previous Listing 2</h5>
+          <p class="card-text">Price: $50</p>
+          <p class="card-text">Description: Great condition.</p>
+          <a href="#" class="btn btn-secondary">View Details</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+      <div class="card shadow h-100">
+        <div class="card-img-top text-center custom-img-container">
+          <img src="#" class="img-fluid" alt="Previous Listing 3" style="max-width: 80%;">
+        </div>
+        <div class="card-body pt-3">
+          <h5 class="card-title">Previous Listing 3</h5>
+          <p class="card-text">Price: $50</p>
+          <p class="card-text">Description: Great condition.</p>
+          <a href="#" class="btn btn-secondary">View Details</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr style="border: 3px solid #000; margin: 20px 0;">
+
+  <h4 class="h3 text-grey-900">Sales Statistics</h4>
+  <p> To be Continued</p>
+
+</div>
+
+
+</div>
+
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+<script src="js/sb-admin-2.min.js"></script>
+<script src="sellpagejs.js"></script>
+
+</body>
+
+</html>

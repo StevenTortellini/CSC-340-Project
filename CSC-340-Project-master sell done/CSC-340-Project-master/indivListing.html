@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Listing Details - YouSell</title>
+
+    <!-- Custom fonts and styles -->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <style>
+        .listing-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .star-rating {
+            direction: rtl;
+            display: inline-flex;
+            font-size: 1.5em;
+        }
+
+        .star-rating input[type="radio"] {
+            display: none;
+        }
+
+        .star-rating label {
+            color: lightgray;
+            cursor: pointer;
+            transition: color 0.2s ease-in-out;
+        }
+
+        .star-rating input[type="radio"]:checked ~ label,
+        .star-rating label:hover,
+        .star-rating label:hover ~ label {
+            color: gold;
+        }
+
+        .review-description {
+            resize: none;
+        }
+    </style>
+</head>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="userHome.html">Home</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="listings.html">Buy <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Sell</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="allMessages.html">Messages</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    YouSell
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="userHome.html#about-us-section">About Us</a>
+                    <a class="dropdown-item" href="userHome.html#report-problem-section">Report a Problem</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="userProfile.html">User Profile</a>
+                </div>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
+
+<body class="bg-gradient-light">
+
+<div class="container mt-5">
+    <div class="row">
+        <!-- Listing Image and Details -->
+        <div class="col-md-6">
+            <img src="img/product-placeholder.jpg" alt="Product Image" class="listing-image mb-4">
+        </div>
+
+        <div class="col-md-6">
+            <h2 class="font-weight-bold">Product Name</h2>
+            <p><strong>Description:</strong> This is a detailed description of the product. It contains all the necessary information about the item.</p>
+            <p><strong>Price:</strong> $99.99</p>
+            <p><strong>Seller:</strong> John Doe</p>
+            <a href="allMessages.html" class="btn btn-primary mb-4"><i class="fas fa-envelope"></i> Message the Seller</a>
+
+            <!-- Review Form -->
+            <h4 class="font-weight-bold">Review the Seller</h4>
+            <form id="review-form">
+                <div class="form-group">
+                    <label for="star-rating">Rating (1 to 5):</label>
+                    <div class="star-rating" id="star-rating">
+                        <input type="radio" name="rating" id="star5" value="5">
+                        <label for="star5"><i class="fas fa-star"></i></label>
+
+                        <input type="radio" name="rating" id="star4" value="4">
+                        <label for="star4"><i class="fas fa-star"></i></label>
+
+                        <input type="radio" name="rating" id="star3" value="3">
+                        <label for="star3"><i class="fas fa-star"></i></label>
+
+                        <input type="radio" name="rating" id="star2" value="2">
+                        <label for="star2"><i class="fas fa-star"></i></label>
+
+                        <input type="radio" name="rating" id="star1" value="1">
+                        <label for="star1"><i class="fas fa-star"></i></label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="reviewDescription">Review Description:</label>
+                    <textarea class="form-control review-description" id="reviewDescription" rows="4" placeholder="Write your review here..."></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-success">Submit Review</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap core JavaScript-->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+<script src="js/sb-admin-2.min.js"></script>
+
+<script>
+    // Simple form submission behavior for the review form
+    document.getElementById('review-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        var rating = document.querySelector('input[name="rating"]:checked')?.value;
+        var reviewDescription = document.getElementById('reviewDescription').value;
+
+        if (!rating) {
+            alert('Please select a rating');
+        } else if (!reviewDescription.trim()) {
+            alert('Please add a description to your review');
+        } else {
+            alert('Thank you for your review!');
+            // Reset the form (optional)
+            document.getElementById('review-form').reset();
+        }
+    });
+</script>
+</body>
+
+</html>

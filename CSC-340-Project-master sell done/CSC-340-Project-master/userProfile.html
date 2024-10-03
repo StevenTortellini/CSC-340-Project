@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>User Profile</title>
+
+  <!-- Custom fonts and styles -->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+  <style>
+    /* Ensure body and html take full height */
+    html, body {
+      height: 100%;
+    }
+
+    /* Flexbox centering */
+    .full-height-center {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: calc(100vh - 56px); /* Subtract the navbar height (56px) */
+    }
+  </style>
+</head>
+
+<body class="bg-gradient-light">
+
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="userHome.html">Home</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="listings.html">Buy <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="sellpage.html">Sell</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="allMessages.html">Messages</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          YouSell
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="userHome.html#about-us-section">About Us</a>
+          <a class="dropdown-item" href="userHome.html#report-problem-section">Report a Problem</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="userProfile.html">User Profile</a>
+        </div>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+
+<!-- Profile Section (Centered) -->
+<div class="container full-height-center">
+  <div class="row justify-content-center">
+    <div class="col-md-50">
+      <div class="card shadow mb-4">
+        <div class="card-header py-3">
+          <h6 class="m-0 font-weight-bold text-primary">User Profile</h6>
+        </div>
+        <div class="card-body">
+
+          <!-- Profile Picture Section -->
+          <div class="text-center mb-4">
+            <img src="https://via.placeholder.com/150" class="rounded-circle img-fluid" alt="User Profile Picture">
+            <br><br>
+            <button class="btn btn-secondary">Change Profile Picture</button>
+          </div>
+
+          <!-- Edit Name Section -->
+          <form>
+            <div class="form-group">
+              <label for="userName">Name</label>
+              <input type="text" class="form-control" id="userName" placeholder="Enter your name" value="John Doe">
+            </div>
+
+            <!-- Save Changes Button -->
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+          </form>
+
+          <hr>
+
+          <!-- Logout Section -->
+          <div class="text-center">
+            <a href="userLogin.html" class="btn btn-danger">Logout</a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap core JavaScript -->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+<script src="js/sb-admin-2.min.js"></script>
+
+</body>
+
+</html>
