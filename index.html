@@ -20,9 +20,11 @@
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
+    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <link rel="stylesheet" href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css"></style>
     <script type="text/javascript" src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script> -->
 
 </head>
 
@@ -60,7 +62,7 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="adminStats.html">
                     
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                         <span>Statistics</span>
@@ -183,70 +185,7 @@
                         </li>
 
                         <!-- Nav Item - Messages -->
-                        <li class="nav-item dropdown no-arrow mx-1">
-                            <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-envelope fa-fw"></i>
-                                <!-- Counter - Messages -->
-                                <span class="badge badge-danger badge-counter">7</span>
-                            </a>
-                            <!-- Dropdown - Messages -->
-                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="messagesDropdown">
-                                <h6 class="dropdown-header">
-                                    Message Center
-                                </h6>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="img/undraw_profile_1.svg"
-                                            alt="...">
-                                        <div class="status-indicator bg-success"></div>
-                                    </div>
-                                    <div class="font-weight-bold">
-                                        <div class="text-truncate">Hi there! I am wondering if you can help me with a
-                                            problem I've been having.</div>
-                                        <div class="small text-gray-500">Emily Fowler · 58m</div>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="img/undraw_profile_2.svg"
-                                            alt="...">
-                                        <div class="status-indicator"></div>
-                                    </div>
-                                    <div>
-                                        <div class="text-truncate">I have the photos that you ordered last month, how
-                                            would you like them sent to you?</div>
-                                        <div class="small text-gray-500">Jae Chun · 1d</div>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="img/undraw_profile_3.svg"
-                                            alt="...">
-                                        <div class="status-indicator bg-warning"></div>
-                                    </div>
-                                    <div>
-                                        <div class="text-truncate">Last month's report looks great, I am very happy with
-                                            the progress so far, keep up the good work!</div>
-                                        <div class="small text-gray-500">Morgan Alvarez · 2d</div>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60"
-                                            alt="...">
-                                        <div class="status-indicator bg-success"></div>
-                                    </div>
-                                    <div>
-                                        <div class="text-truncate">Am I a good boy? The reason I ask is because someone
-                                            told me that people say this to all dogs, even if they aren't good...</div>
-                                        <div class="small text-gray-500">Chicken the Dog · 2w</div>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
-                            </div>
-                        </li>
+                        
 
                         <div class="topbar-divider d-none d-sm-block"></div>
 
@@ -261,11 +200,11 @@
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="adminProfile.html">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
                                 </a>
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="404.html">
                                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Settings
                                 </a>
@@ -299,97 +238,187 @@
 
                     <div class="row">
 
-                        <table id="myTable" class="table table-striped" >  
-                            <thead>  
-                              <tr>  
-                                <th>ENO</th>  
-                                <th>EMPName</th>  
-                                <th>Country</th>  
-                                <th>Salary</th>  
-                              </tr>  
-                            </thead>  
-                            <tbody>  
-                              <tr>  
-                                <td>001</td>  
-                                <td>Anusha</td>  
-                                <td>India</td>  
-                                <td>10000</td>  
-                              </tr>  
-                              <tr>  
-                                <td>002</td>  
-                                <td>Charles</td>  
-                                <td>United Kingdom</td>  
-                                <td>28000</td>  
-                              </tr>  
-                              <tr>  
-                                <td>003</td>  
-                                <td>Sravani</td>  
-                                <td>Australia</td>  
-                                <td>7000</td>  
-                              </tr>  
-                               <tr>  
-                                <td>004</td>  
-                                <td>Amar</td>  
-                                <td>India</td>  
-                                <td>18000</td>  
-                              </tr>  
-                              <tr>  
-                                <td>005</td>  
-                                <td>Lakshmi</td>  
-                                <td>India</td>  
-                                <td>12000</td>  
-                              </tr>  
-                              <tr>  
-                                <td>006</td>  
-                                <td>James</td>  
-                                <td>Canada</td>  
-                                <td>50000</td>  
-                              </tr>  
-                              
-                               <tr>  
-                                <td>007</td>  
-                                <td>Ronald</td>  
-                                <td>US</td>  
-                                <td>75000</td>  
-                              </tr>  
-                              <tr>  
-                                <td>008</td>  
-                                <td>Mike</td>  
-                                <td>Belgium</td>  
-                                <td>100000</td>  
-                              </tr>  
-                              <tr>  
-                                <td>009</td>  
-                                <td>Andrew</td>  
-                                <td>Argentina</td>  
-                                <td>45000</td>  
-                              </tr>  
-                              
-                                <tr>  
-                                <td>010</td>  
-                                <td>Stephen</td>  
-                                <td>Austria</td>  
-                                <td>30000</td>  
-                              </tr>  
-                              <tr>  
-                                <td>011</td>  
-                                <td>Sara</td>  
-                                <td>China</td>  
-                                <td>750000</td>  
-                              </tr>  
-                              <tr>  
-                                <td>012</td>  
-                                <td>JonRoot</td>  
-                                <td>Argentina</td>  
-                                <td>65000</td>  
-                              </tr>  
-                            </tbody>  
-                          </table>  
-
-                    <!-- Content Row -->
-                    
-
-                </div>
+                        <div class="col-lg-12">
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Tickets</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                            <thead>
+                                                <tr>
+                                                    <th>Ticket ID</th>
+                                                    <th>Title</th>
+                                                    <th>Date</th>
+                                                    <th>Status</th>
+                                                
+                                                </tr>
+                                            </thead>
+                                            <tfoot>
+                                                <tr>
+                                                    <th>Ticket ID</th>
+                                                    <th>Title</th>
+                                                    <th>Date</th>
+                                                    <th>Status</th>
+                                                </tr>
+                                            </tfoot>
+                                            <tbody>
+                                                <tr>
+                                                    <td><a href="individualTicket.html">01</a></td>
+                                                    <td>Fake posting</td>
+                                                    <td>10/01/2024</td>
+                                                    <td>Unfulfilled</td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="individualTicket.html">02</a></td>
+                                                    <td>Tried to scam me</td>
+                                                    <td>10/01/2024</td>
+                                                    <td>Unfulfilled</td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="individualTicket.html">03</a></td>
+                                                    <td>illegal activity</td>
+                                                    <td>10/01/2024</td>
+                                                    <td>Unfulfilled</td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="individualTicket.html">04</a></td>
+                                                    <td>Fake posting</td>
+                                                    <td>10/01/2024</td>
+                                                    <td>Unfulfilled</td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="individualTicket.html">05</a></td>
+                                                    <td>illegal activity</td>
+                                                    <td>10/01/2024</td>
+                                                    <td>Unfulfilled</td>
+                                                
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="individualTicket.html">06</a></td>
+                                                    <td>Tried to scam me</td>
+                                                    <td>10/01/2024</td>
+                                                    <td>Unfulfilled</td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="individualTicket.html">07</a></td>
+                                                    <td>I dont like the seller</td>
+                                                    <td>10/01/2024</td>
+                                                    <td>Unfulfilled</td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="individualTicket.html">08</a></td>
+                                                    <td>Offensive language</td>
+                                                    <td>09/30/2024</td>
+                                                    <td>Unfulfilled</td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="individualTicket.html">09</a></td>
+                                                    <td>I dont like the seller</td>
+                                                    <td>09/30/2024</td>
+                                                    <td>Unfulfilled</td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="individualTicket.html">10</a></td>
+                                                    <td>Fake posting</td>
+                                                    <td>09/30/2024</td>
+                                                    <td>Fulfilled</td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="individualTicket.html">11</a></td>
+                                                    <td>Tried to scam me</td>
+                                                    <td>09/30/2024</td>
+                                                    <td>Fulfilled</td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="individualTicket.html">12</a></td>
+                                                    <td>illegal activity</td>
+                                                    <td>09/30/2024</td>
+                                                    <td>Fulfilled</td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="individualTicket.html">13</a></td>
+                                                    <td>Fake posting</td>
+                                                    <td>09/30/2024</td>
+                                                    <td>Fulfilled</td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="individualTicket.html">14</a></td>
+                                                    <td>I dont like the seller</td>
+                                                    <td>09/30/2024</td>
+                                                    <td>Fulfilled</td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="individualTicket.html">15</a></td>
+                                                    <td>Tried to scam me</td>
+                                                    <td>09/30/2024</td>
+                                                    <td>Fulfilled</td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="individualTicket.html">16</a></td>
+                                                    <td>illegal activity</td>
+                                                    <td>09/29/2024</td>
+                                                    <td>Fulfilled</td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="individualTicket.html">17</a></td>
+                                                    <td>I dont like the seller</td>
+                                                    <td>09/29/2024</td>
+                                                    <td>Fulfilled</td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="individualTicket.html">18</a></td>
+                                                    <td>Offensive language</td>
+                                                    <td>09/29/2024</td>
+                                                    <td>Fulfilled</td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="individualTicket.html">19</a></td>
+                                                    <td>Tried to scam me</td>
+                                                    <td>09/29/2024</td>
+                                                    <td>Fulfilled</td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="individualTicket.html">20</a></td>
+                                                    <td>Offensive language</td>
+                                                    <td>09/29/2024</td>
+                                                    <td>Fulfilled</td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="individualTicket.html">21</a></td>
+                                                    <td>illegal activity</td>
+                                                    <td>01/01/2000</td>
+                                                    <td>Fulfilled</td>
+                                                    
+                                                </tr>
+                                                
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>    
+    
                 <!-- /.container-fluid -->
 
             </div>
@@ -399,7 +428,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2021</span>
+                        <span>Copyright &copy; YouSell 2024</span>
                     </div>
                 </div>
             </footer>
@@ -448,16 +477,17 @@
 
     <!-- Page level plugins -->
     <script src="vendor/chart.js/Chart.min.js"></script>
+    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
     <!-- Page level custom scripts -->
     <script src="js/demo/chart-area-demo.js"></script>
     <script src="js/demo/chart-pie-demo.js"></script>
 
+    <script src="js/demo/datatables-demo.js"></script>
+    
+
 </body>
-<script>
-    $(document).ready(function(){
-        $('#myTable').dataTable();
-    });
-    </script>
+    
 
 </html>
