@@ -87,11 +87,11 @@ User
 
 New 
 
-    {
-        "name": "Test Test",
-        "email": "test@yahoo.com",
-        "password": "testword",
-        "role": "testrole",
-        "accountStatus": "test",
-        "rating": 10.0
-    }
+{
+    "name": "Test Test",
+    "email": "test@yahoo.com",
+    "password": "testword",
+    "role": "testrole",
+    "accountStatus": "test",
+    "rating": 10.0
+}
