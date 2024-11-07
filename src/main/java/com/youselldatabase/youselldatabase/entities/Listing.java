@@ -8,8 +8,9 @@ import java.util.Date;
 @Entity
 @Table(name = "listings")
 public class Listing {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int listingId;
 
     @Column(nullable = false)

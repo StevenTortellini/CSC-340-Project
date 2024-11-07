@@ -8,7 +8,7 @@ import jakarta.persistence.GenerationType;
 @Entity
 public class Review {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int reviewId;
     private String reviewDes;
     private double rating;

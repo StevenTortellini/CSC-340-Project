@@ -8,7 +8,7 @@ import jakarta.persistence.GenerationType;
 @Entity
 public class Message {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int messageId;
     private String messageBody;
     private int sellerId;
