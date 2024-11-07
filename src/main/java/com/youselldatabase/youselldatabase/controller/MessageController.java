@@ -2,7 +2,9 @@
 package com.youselldatabase.youselldatabase.controller;
 
 import com.youselldatabase.youselldatabase.entities.Listing;
+import com.youselldatabase.youselldatabase.entities.Message;
 import com.youselldatabase.youselldatabase.repository.ListingRepository;
+import com.youselldatabase.youselldatabase.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,40 +15,32 @@ import java.util.List;
 public class MessageController {
 
     @Autowired
-    private ListingRepository listingRepository;
+    private MessageService service;
 
-    @GetMapping
-    public List<Listing> getAllListings() {
-        return listingRepository.findAll();
+    @GetMapping("/all")
+    public List<Message> getAllMessages() {
+        return service.getAllMessages();
     }
 
     @GetMapping("/{id}")
-    public Listing getListingById(@PathVariable int id) {
-        return listingRepository.findById(id).orElse(null);
+    public Message getMessageById(@PathVariable int id) {
+        return service.getMessageById(id);
     }
 
-    @PostMapping
-    public Listing createListing(@RequestBody Listing listing) {
-        return listingRepository.save(listing);
+    @PostMapping("/new")
+    public Message createMessage(@RequestBody Message message) {
+        service.addNewMessage(message);
+        return getMessageById(message.getMessageId());
     }
 
-    @PutMapping("/{id}")
-    public Listing updateListing(@PathVariable int id, @RequestBody Listing listingDetails) {
-        Listing listing = listingRepository.findById(id).orElse(null);
-        if (listing != null) {
-            listing.setListingName(listingDetails.getListingName());
-            listing.setListingDes(listingDetails.getListingDes());
-            listing.setListingStatus(listingDetails.getListingStatus());
-            listing.setListedAt(listingDetails.getListedAt());
-            listing.setCreatedBy(listingDetails.getCreatedBy());
-            listing.setSoldTo(listingDetails.getSoldTo());
-            return listingRepository.save(listing);
-        }
-        return null;
+    @PutMapping("/update/{id}")
+    public Message updateMessage(@PathVariable int id, @RequestBody Message messageDetails) {
+        service.updateMessage(id, messageDetails);
+        return getMessageById(id);
     }
 
-    @DeleteMapping("/delete/{id}")
-    public void deleteListing(@PathVariable int id) {
-        listingRepository.deleteById(id);
+    @DeleteMapping("/{id}")
+    public void deleteMessage(@PathVariable int id) {
+        service.deleteMessageById(id);
     }
 }

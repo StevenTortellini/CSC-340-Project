@@ -3,6 +3,7 @@ package com.youselldatabase.youselldatabase.controller;
 
 import com.youselldatabase.youselldatabase.entities.Listing;
 import com.youselldatabase.youselldatabase.repository.ListingRepository;
+import com.youselldatabase.youselldatabase.service.ListingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,40 +14,36 @@ import java.util.List;
 public class ListingController {
 
     @Autowired
-    private ListingRepository listingRepository;
+    private ListingService service;
 
-    @GetMapping
+    @GetMapping("/all")
     public List<Listing> getAllListings() {
-        return listingRepository.findAll();
+
+        return service.getAllListings();
     }
 
     @GetMapping("/{id}")
     public Listing getListingById(@PathVariable int id) {
-        return listingRepository.findById(id).orElse(null);
+
+        return service.getListingById(id);
     }
 
-    @PostMapping
+    @PostMapping("/new")
     public Listing createListing(@RequestBody Listing listing) {
-        return listingRepository.save(listing);
+               service.addNewListing(listing);
+       return getListingById(listing.getListingId());
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/update/{id}")
     public Listing updateListing(@PathVariable int id, @RequestBody Listing listingDetails) {
-        Listing listing = listingRepository.findById(id).orElse(null);
-        if (listing != null) {
-            listing.setListingName(listingDetails.getListingName());
-            listing.setListingDes(listingDetails.getListingDes());
-            listing.setListingStatus(listingDetails.getListingStatus());
-            listing.setListedAt(listingDetails.getListedAt());
-            listing.setCreatedBy(listingDetails.getCreatedBy());
-            listing.setSoldTo(listingDetails.getSoldTo());
-            return listingRepository.save(listing);
-        }
-        return null;
+        service.updateListing(id,listingDetails);
+        return getListingById(id);
+
     }
 
     @DeleteMapping("/{id}")
     public void deleteListing(@PathVariable int id) {
-        listingRepository.deleteById(id);
+
+        service.deleteListingById(id);
     }
 }

@@ -2,7 +2,9 @@
 package com.youselldatabase.youselldatabase.controller;
 
 import com.youselldatabase.youselldatabase.entities.Listing;
+import com.youselldatabase.youselldatabase.entities.Review;
 import com.youselldatabase.youselldatabase.repository.ListingRepository;
+import com.youselldatabase.youselldatabase.service.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,40 +15,32 @@ import java.util.List;
 public class ReviewController {
 
     @Autowired
-    private ListingRepository listingRepository;
+    private ReviewService service;
 
-    @GetMapping
-    public List<Listing> getAllListings() {
-        return listingRepository.findAll();
+    @GetMapping("/all")
+    public List<Review> getAllReviews() {
+        return service.getAllReviews();
     }
 
     @GetMapping("/{id}")
-    public Listing getListingById(@PathVariable int id) {
-        return listingRepository.findById(id).orElse(null);
+    public Review getReviewById(@PathVariable int id) {
+        return service.getReviewById(id);
     }
 
-    @PostMapping
-    public Listing createListing(@RequestBody Listing listing) {
-        return listingRepository.save(listing);
+    @PostMapping("/new")
+    public Review createReview(@RequestBody Review review) {
+        service.addNewReview(review);
+        return getReviewById(review.getReviewId());
     }
 
-    @PutMapping("/{id}")
-    public Listing updateListing(@PathVariable int id, @RequestBody Listing listingDetails) {
-        Listing listing = listingRepository.findById(id).orElse(null);
-        if (listing != null) {
-            listing.setListingName(listingDetails.getListingName());
-            listing.setListingDes(listingDetails.getListingDes());
-            listing.setListingStatus(listingDetails.getListingStatus());
-            listing.setListedAt(listingDetails.getListedAt());
-            listing.setCreatedBy(listingDetails.getCreatedBy());
-            listing.setSoldTo(listingDetails.getSoldTo());
-            return listingRepository.save(listing);
-        }
-        return null;
+    @PutMapping("/update/{id}")
+    public Review updateReview(@PathVariable int id, @RequestBody Review reviewDetails) {
+        service.updateReview(id, reviewDetails);
+        return getReviewById(id);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteListing(@PathVariable int id) {
-        listingRepository.deleteById(id);
+    public void deleteReview(@PathVariable int id) {
+        service.deleteReviewById(id);
     }
 }

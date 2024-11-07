@@ -2,7 +2,9 @@
 package com.youselldatabase.youselldatabase.controller;
 
 import com.youselldatabase.youselldatabase.entities.Listing;
+import com.youselldatabase.youselldatabase.entities.Statistic;
 import com.youselldatabase.youselldatabase.repository.ListingRepository;
+import com.youselldatabase.youselldatabase.service.StatisticService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,40 +15,32 @@ import java.util.List;
 public class StatisticController {
 
     @Autowired
-    private ListingRepository listingRepository;
+    private StatisticService service;
 
-    @GetMapping
-    public List<Listing> getAllListings() {
-        return listingRepository.findAll();
+    @GetMapping("/all")
+    public List<Statistic> getAllStatistics() {
+        return service.getAllStatistics();
     }
 
     @GetMapping("/{id}")
-    public Listing getListingById(@PathVariable int id) {
-        return listingRepository.findById(id).orElse(null);
+    public Statistic getStatisticById(@PathVariable int id) {
+        return service.getStatisticById(id);
     }
 
-    @PostMapping
-    public Listing createListing(@RequestBody Listing listing) {
-        return listingRepository.save(listing);
+    @PostMapping("/new")
+    public List<Statistic> createStatistic(@RequestBody Statistic statistic) {
+        service.addNewStatistic(statistic);
+        return service.getAllStatistics();
     }
 
-    @PutMapping("/{id}")
-    public Listing updateListing(@PathVariable int id, @RequestBody Listing listingDetails) {
-        Listing listing = listingRepository.findById(id).orElse(null);
-        if (listing != null) {
-            listing.setListingName(listingDetails.getListingName());
-            listing.setListingDes(listingDetails.getListingDes());
-            listing.setListingStatus(listingDetails.getListingStatus());
-            listing.setListedAt(listingDetails.getListedAt());
-            listing.setCreatedBy(listingDetails.getCreatedBy());
-            listing.setSoldTo(listingDetails.getSoldTo());
-            return listingRepository.save(listing);
-        }
-        return null;
+    @PutMapping("/update/{id}")
+    public Statistic updateStatistic(@PathVariable int id, @RequestBody Statistic statisticDetails) {
+        service.updateStatistic(id, statisticDetails);
+        return getStatisticById(id);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteListing(@PathVariable int id) {
-        listingRepository.deleteById(id);
+    public void deleteStatistic(@PathVariable int id) {
+        service.deleteStatisticById(id);
     }
 }
