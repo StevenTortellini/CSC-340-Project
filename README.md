@@ -70,7 +70,7 @@ Statistic
 New
 
 {
-  "totalTickets": 25,
+  "totalTickets": 280,
   "activeTickets": 24,
   "fulfiledTickets": 1,
   "totalListings": 200,
@@ -88,7 +88,7 @@ User
 New 
 
 {
-    "name": "Test Test",
+    "name": "Test4Test",
     "email": "test@yahoo.com",
     "password": "testword",
     "role": "testrole",
