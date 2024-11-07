@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/listings")
-public class ListingController {
+@RequestMapping("/message")
+public class MessageController {
 
     @Autowired
     private ListingRepository listingRepository;
@@ -45,7 +45,7 @@ public class ListingController {
         return null;
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/delete/{id}")
     public void deleteListing(@PathVariable int id) {
         listingRepository.deleteById(id);
     }

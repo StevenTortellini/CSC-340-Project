@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/listings")
-public class ListingController {
+@RequestMapping("/review")
+public class ReviewController {
 
     @Autowired
     private ListingRepository listingRepository;

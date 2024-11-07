@@ -1,23 +1,33 @@
 // src/main/java/com/youselldatabase/youselldatabase/entities/Listing.java
 package com.youselldatabase.youselldatabase.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
+import jakarta.persistence.*;
 
 import java.util.Date;
 
 @Entity
+@Table(name = "listings")
 public class Listing {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int listingId;
+
+    @Column(nullable = false)
     private String listingName;
+
+    @Column(nullable = false)
     private String listingDes;
+
+    @Column(nullable = false)
     private String listingStatus;
+
+    @Column(nullable = false)
     private Date listedAt;
+
+    @Column(nullable = false)
     private int createdBy;
+
+
     private Integer soldTo;
 
     // Getters and Setters

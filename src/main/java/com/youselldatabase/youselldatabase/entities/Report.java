@@ -16,4 +16,44 @@ public class Report {
     private int listingId;
 
     // Getters and Setters
+
+    public int getReportId() {
+        return reportId;
+    }
+
+    public void setReportId(int reportId) {
+        this.reportId = reportId;
+    }
+
+    public String getReportHeading() {
+        return reportHeading;
+    }
+
+    public void setReportHeading(String reportHeading) {
+        this.reportHeading = reportHeading;
+    }
+
+    public String getReportDes() {
+        return reportDes;
+    }
+
+    public void setReportDes(String reportDes) {
+        this.reportDes = reportDes;
+    }
+
+    public String getReportStatus() {
+        return reportStatus;
+    }
+
+    public void setReportStatus(String reportStatus) {
+        this.reportStatus = reportStatus;
+    }
+
+    public int getListingId() {
+        return listingId;
+    }
+
+    public void setListingId(int listingId) {
+        this.listingId = listingId;
+    }
 }

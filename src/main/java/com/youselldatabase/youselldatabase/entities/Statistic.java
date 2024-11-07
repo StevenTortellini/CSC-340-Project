@@ -15,4 +15,44 @@ public class Statistic {
     private int soldListings;
 
     // Getters and Setters
+
+    public int getTotalTickets() {
+        return totalTickets;
+    }
+
+    public void setTotalTickets(int totalTickets) {
+        this.totalTickets = totalTickets;
+    }
+
+    public int getSoldListings() {
+        return soldListings;
+    }
+
+    public void setSoldListings(int soldListings) {
+        this.soldListings = soldListings;
+    }
+
+    public int getActiveTickets() {
+        return activeTickets;
+    }
+
+    public void setActiveTickets(int activeTickets) {
+        this.activeTickets = activeTickets;
+    }
+
+    public int getFulfiledTickets() {
+        return fulfiledTickets;
+    }
+
+    public void setFulfiledTickets(int fulfiledTickets) {
+        this.fulfiledTickets = fulfiledTickets;
+    }
+
+    public int getTotalListings() {
+        return totalListings;
+    }
+
+    public void setTotalListings(int totalListings) {
+        this.totalListings = totalListings;
+    }
 }
