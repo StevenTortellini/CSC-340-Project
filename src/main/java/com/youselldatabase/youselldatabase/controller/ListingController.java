@@ -41,7 +41,7 @@ public class ListingController {
 
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/delete/{id}")
     public void deleteListing(@PathVariable int id) {
 
         service.deleteListingById(id);
