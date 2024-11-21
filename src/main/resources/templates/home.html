@@ -8,39 +8,55 @@
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        /* Custom styles */
+        /* Light mode styles */
         body {
-          background-color: #f8f9fa;
+            background-color: #f8f9fa;
+            color: #212529;
+        }
+
+        .navbar, .footer, .report-problem {
+            background-color: #f8f9fa;
+            color: #212529;
+        }
+
+        /* Dark mode styles */
+        body.dark-mode {
+            background-color: #3e3e3e;
+            color: #ffffff;
+        }
+
+        body.dark-mode .navbar, body.dark-mode .footer {
+            background-color: #3e3e3e;
+        }
+
+        body.dark-mode a {
+            color: #ffffff;
+        }
+
+        body.dark-mode .report-problem {
+            background-color: #3e3e3e;
+            color: #ffffff;
         }
 
         .welcome-text {
-          text-align: center;
-          margin: 20px 0;
-        }
-
-        .footer {
-          background-color: #f8f9fa;
-          padding: 20px;
-          text-align: center;
-          position: relative;
-          bottom: 0;
-          width: 100%;
+            text-align: center;
+            margin: 20px 0;
         }
 
         .about-us, .report-problem {
-          padding: 40px 0;
-          text-align: center;
+            padding: 40px 0;
+            text-align: center;
         }
 
         .report-btn {
-          margin: 20px;
+            margin: 20px;
         }
     </style>
 </head>
 
 <body>
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light">
     <a class="navbar-brand" href="home.html">Home</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -62,18 +78,19 @@
                     YouSell
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-    <a class="dropdown-item" href="#about-us-section">About Us</a>
-    <a class="dropdown-item" href="#report-problem-section">Report a Problem</a>
-    <div class="dropdown-divider"></div>
-    <a class="dropdown-item" href="userProfile.html">User Profile</a>
+                    <a class="dropdown-item" href="#about-us-section">About Us</a>
+                    <a class="dropdown-item" href="#report-problem-section">Report a Problem</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="userProfile.html">User Profile</a>
                     <a class="dropdown-item" href="/reviews/review">Create a Review</a>
-</div>
+                </div>
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
+        <button id="darkModeToggle" class="btn btn-secondary ml-2">Dark Mode</button>
         <a href="/logout" class="btn btn-danger ml-2">Logout</a>
     </div>
 </nav>
@@ -116,7 +133,7 @@
 </section>
 
 <!-- Report a Problem Section -->
-<section id="report-problem-section" class="report-problem bg-light">
+<section id="report-problem-section" class="report-problem">
     <div class="container">
         <h2>Report a Problem</h2>
         <p>If you're experiencing any issues, please let us know by filling out the form below.</p>
@@ -130,8 +147,6 @@
     </div>
 </section>
 
-
-
 <!-- Footer -->
 <div class="footer">
     <p>&copy; 2024 YouSell. All Rights Reserved.</p>
@@ -143,17 +158,12 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 <script>
-    // Handle report form submission
-    document.getElementById('report-form').addEventListener('submit', function(event) {
-      event.preventDefault();
-      const problemDescription = document.getElementById('problem-description').value;
-
-      if (problemDescription.trim() === "") {
-        alert("Please describe the problem before submitting.");
-      } else {
-        alert("Thank you for your report. Our team will look into it.");
-        document.getElementById('report-form').reset();
-      }
+    // Dark mode toggle logic
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    darkModeToggle.addEventListener('click', function () {
+        document.body.classList.toggle('dark-mode');
+        const isDarkMode = document.body.classList.contains('dark-mode');
+        darkModeToggle.textContent = isDarkMode ? 'Light Mode' : 'Dark Mode';
     });
 </script>
 </body>
