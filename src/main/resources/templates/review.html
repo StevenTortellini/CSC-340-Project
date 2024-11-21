@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Review</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .stars {
+      display: flex;
+      flex-direction: row;
+    }
+    .stars img {
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      opacity: 0.6;
+    }
+    .stars img:hover, .stars img.active {
+      filter: brightness(2.5);
+    }
+  </style>
+</head>
+<body>
+<div class="container mt-5">
+  <h2>Create a Review</h2>
+  <form id="reviewForm">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text" class="form-control" id="title" name="title" required>
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea class="form-control" id="description" name="description" rows="4" required></textarea>
+    </div>
+    <div class="form-group">
+      <label>Rating</label>
+      <div class="stars" id="starRating">
+        <!-- Star images -->
+        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" alt="Star" data-value="1">
+        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" alt="Star" data-value="2">
+        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" alt="Star" data-value="3">
+        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" alt="Star" data-value="4">
+        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" alt="Star" data-value="5">
+      </div>
+      <input type="hidden" id="rating" name="rating" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit Review</button>
+  </form>
+</div>
+
+<script>
+  const stars = document.querySelectorAll('#starRating img');
+  const ratingInput = document.getElementById('rating');
+
+  stars.forEach(star => {
+    star.addEventListener('mouseover', function () {
+      highlightStars(star.dataset.value);
+    });
+
+    star.addEventListener('click', function () {
+      selectRating(star.dataset.value);
+    });
+
+    star.addEventListener('mouseout', function () {
+      resetStars();
+    });
+  });
+
+  function highlightStars(rating) {
+    stars.forEach(star => {
+      star.classList.toggle('active', star.dataset.value <= rating);
+    });
+  }
+
+  function selectRating(rating) {
+    ratingInput.value = rating;
+    highlightStars(rating);
+  }
+
+  function resetStars() {
+    if (ratingInput.value) {
+      highlightStars(ratingInput.value);
+    } else {
+      stars.forEach(star => star.classList.remove('active'));
+    }
+  }
+
+  document.getElementById('reviewForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const formData = new FormData(event.target);
+      const data = {};
+      formData.forEach((value, key) => {
+          data[key] = value;
+      });
+
+      fetch('/reviews', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+      })
+      .then(response => response.json())
+      .then(data => {
+          alert('Thank you for your review!');
+          window.location.href = '/';
+      })
+      .catch((error) => {
+          console.error('Error:', error);
+      });
+  })
+
+
+</script>
+
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.6/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
