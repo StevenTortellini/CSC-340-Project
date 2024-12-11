@@ -22,6 +22,45 @@
   </style>
 </head>
 <body>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light">
+  <a class="navbar-brand" href="/home">Home</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="listings.html">Buy <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Sell</a>
+      </li>
+
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          YouSell
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#about-us-section">About Us</a>
+          <a class="dropdown-item" href="#report-problem-section">Report a Problem</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" th:href="@{/userProfile(username=${username})}">View Profile</a>
+          <a class="dropdown-item" href="/reviews/review">Create a Review</a>
+        </div>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+    <button id="darkModeToggle" class="btn btn-secondary ml-2">Dark Mode</button>
+    <a href="/logout" class="btn btn-danger ml-2">Logout</a>
+  </div>
+</nav>
+
 <div class="container mt-5">
   <h2>Create a Review</h2>
   <form id="reviewForm">
@@ -104,17 +143,13 @@
       .then(response => response.json())
       .then(data => {
           alert('Thank you for your review!');
-          window.location.href = '/';
+          window.location.href = 'http://localhost:8080/home';
       })
       .catch((error) => {
           console.error('Error:', error);
       });
   })
-
-
 </script>
-
-
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.6/dist/umd/popper.min.js"></script>
