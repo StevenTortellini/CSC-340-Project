@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="home.html">Home</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="listings.html">Buy <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="sellpage.html">Sell</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Messages</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        YouSell
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/home#about-us-section">About Us</a>
+                        <a class="dropdown-item" href="/home#report-problem-section">Report a Problem</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="/profile">User Profile</a>
+                    </div>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>YouSell Marketplace - Sell Product</title>
+
+    <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="/css/sb-admin-2.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gradient-light">
+
+<div class="container mt-5">
+    <div class="text-center mb-4">
+        <h1 class="h3 text-gray-900">Sell Your Product</h1>
+        <p>Provide the details of the product you want to sell.</p>
+    </div>
+
+    <div class="card shadow mx-auto" style="max-width: 600px;">
+        <div class="card-body">
+            <form th:action="@{/listings/new}" method="post" enctype="multipart/form-data">
+
+                <!-- Product Image -->
+                <div class="form-group">
+                    <label for="productImage">Upload Product Image</label>
+                    <input type="file" class="form-control-file" id="productImage" name="productImage" required>
+                </div>
+
+                <!-- Product Name -->
+                <div class="form-group">
+                    <label for="productName">Product Name</label>
+                    <input type="text" class="form-control" id="productName" name="listingName" placeholder="Enter product name" required th:value="${listing?.listingName}">
+                </div>
+
+                <!-- Product Price -->
+                <div class="form-group">
+                    <label for="productPrice">Price ($)</label>
+                    <input type="number" class="form-control" id="productPrice" name="listingPrice" placeholder="Enter price" step="0.01" required th:value="${listing?.listingPrice}">
+                </div>
+
+                <!-- Product Description -->
+                <div class="form-group">
+                    <label for="productDescription">Description</label>
+                    <textarea class="form-control" id="productDescription" name="listingDes" rows="4" placeholder="Enter product description" required th:text="${listing?.listingDes}"></textarea>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">List Product</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="/vendor/jquery/jquery.min.js"></script>
+<script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
+<script src="/js/sb-admin-2.min.js"></script>
+
+</body>
+
+</html>

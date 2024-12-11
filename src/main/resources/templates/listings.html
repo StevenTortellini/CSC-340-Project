@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-  <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="userHome.html">Home</a>
+    <a class="navbar-brand" href="home.html">Home</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -15,20 +15,20 @@
           <a class="nav-link" href="listings.html">Buy <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Sell</a>
+          <a class="nav-link" href="sellpage.html">Sell</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="allMessages.html">Messages</a>
+          <a class="nav-link" href="">Messages</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             YouSell
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="userHome.html#about-us-section">About Us</a>
-            <a class="dropdown-item" href="userHome.html#report-problem-section">Report a Problem</a>
+            <a class="dropdown-item" href="home.html#about-us-section">About Us</a>
+            <a class="dropdown-item" href="home.html#report-problem-section">Report a Problem</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="userProfile.html">User Profile</a>
+            <a class="dropdown-item" href="">User Profile</a>
           </div>
         </li>
       </ul>
@@ -44,10 +44,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>YouSell Marketplace - Listings</title>
 
-  <!-- Custom fonts and styles -->
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-  <link href="css/sb-admin-2.min.css" rel="stylesheet">
+  <link href="/css/sb-admin-2.min.css" rel="stylesheet">
 </head>
 
 <body class="bg-gradient-light">
@@ -56,44 +55,17 @@
   <div class="text-center mb-4">
     <h1 class="h3 text-gray-900">Marketplace Listings</h1>
     <p>Welcome to YouSell! Buying and Selling done right.</p>
-    <a href="userLogin.html" class="btn btn-primary">Logout</a>
+    <a href="login.html" class="btn btn-primary">Logout</a>
   </div>
 
   <div class="row">
-    <!-- Example Listing 1 -->
-    <div class="col-md-4 mb-4">
+    <div class="col-md-4 mb-4" th:each="product : ${products}">
       <div class="card shadow h-100">
-        <img src="img/product1.jpg" class="card-img-top" alt="Product 1">
+        <img th:src="'data:image/jpeg;base64,' + ${#strings.bytesToBase64(listing.imageData)}" alt="Product Image">
         <div class="card-body">
-          <h5 class="card-title">Product 1</h5>
-          <p class="card-text">Price: $50</p>
-          <p class="card-text">Description: High-quality product.</p>
-          <a href="indivListing.html" class="btn btn-primary">View</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Example Listing 2 -->
-    <div class="col-md-4 mb-4">
-      <div class="card shadow h-100">
-        <img src="img/product2.jpg" class="card-img-top" alt="Product 2">
-        <div class="card-body">
-          <h5 class="card-title">Product 2</h5>
-          <p class="card-text">Price: $75</p>
-          <p class="card-text">Description: Best value for money.</p>
-          <a href="indivListing.html" class="btn btn-primary">View</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Example Listing 3 -->
-    <div class="col-md-4 mb-4">
-      <div class="card shadow h-100">
-        <img src="img/product3.jpg" class="card-img-top" alt="Product 3">
-        <div class="card-body">
-          <h5 class="card-title">Product 3</h5>
-          <p class="card-text">Price: $100</p>
-          <p class="card-text">Description: Limited edition product.</p>
+          <h5 class="card-title" th:text="${product.name}">Product Name</h5>
+          <p class="card-text">Price: <span th:text="${product.price}"></span></p>
+          <p class="card-text" th:text="${product.description}">Product Description</p>
           <a href="indivListing.html" class="btn btn-primary">View</a>
         </div>
       </div>
@@ -101,11 +73,11 @@
   </div>
 </div>
 
-<!-- Bootstrap core JavaScript-->
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-<script src="js/sb-admin-2.min.js"></script>
+<script src="/vendor/jquery/jquery.min.js"></script>
+<script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
+<script src="/js/sb-admin-2.min.js"></script>
+
 </body>
 
 </html>
