@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YouSell Home</title>
+    <title>YouSell Sellpage</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
@@ -129,8 +129,7 @@
 
                 <!-- Submit Button -->
                 <div class="text-center">
-                    <input type="hidden" name="userId" th:value="${user?.id}"/>
-                    <button type="submit" class="btn btn-primary">List Product</button>
+                    <button type="submit" class="btn btn-primary" th:href="@{/listings/all}">List Product</button>
                 </div>
             </form>
             <a th:object="${user}" th:unless="${user} == null" th:href="@{/listings/all}" class="btn btn-primary">Return to Listings</a>

@@ -9,6 +9,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.time.LocalDateTime;
+
 @Controller
 @RequestMapping("/listings")
 public class ListingController {
@@ -46,13 +48,13 @@ public class ListingController {
     //@RequestParam("productImage") MultipartFile productImage
     @PostMapping("/new")
     public String createListing(@ModelAttribute("listing") Listing listing) {
-        User user = userService.getUserByUserId(listing.getUserId());
+        User user = userService.getUserByUserId(1);
         if (user == null) {
             throw new IllegalArgumentException("User not found for ID: " + listing.getUserId());
         }
         listing.setUsername(user.getUsername());
         int listingId = listingService.createListing(listing);
-        return "redirect:/listings/listingId/" + listingId + "/userId/" + listing.getUserId();
+        return "listings";
     }
 
 

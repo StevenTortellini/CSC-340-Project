@@ -25,6 +25,7 @@ public class ListingService {
     }
 
     public int createListing(Listing listing){
+        listing.setListedAt(LocalDateTime.now());
         repo.save(listing);
         return listing.getListingId();
     }
@@ -38,7 +39,6 @@ public class ListingService {
         existing.setListedAt(listing.getListedAt());
         existing.setListingDes(listing.getListingDes());
         existing.setListingName(listing.getListingName());
-        existing.setListingStatus(listing.getListingStatus());
         existing.setCreatedBy(listing.getCreatedBy());
         existing.setSoldTo(listing.getSoldTo());
 
