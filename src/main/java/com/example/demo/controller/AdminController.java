@@ -32,6 +32,7 @@ public class AdminController {
         if (loggedInUsername != null) {
             model.addAttribute("username", loggedInUsername);
         }
+
         return "index";
     }
 
