@@ -51,8 +51,9 @@ public class UserController {
             return "redirect:/home";
         } else {
             model.addAttribute("error", "Invalid username or password");
-            return "adminlogin";
+
         }
+        return "login"
     }
     @GetMapping("/logout")
     public String logout() {
