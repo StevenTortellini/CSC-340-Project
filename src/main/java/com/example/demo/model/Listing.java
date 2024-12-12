@@ -16,7 +16,7 @@ public class Listing {
 
     private int userId;
 
-    private int status; // 0 = Not Sold 1 = Sold
+    private int status = 0; // 0 = Not Sold 1 = Sold
 
     private String username;
 
@@ -29,8 +29,6 @@ public class Listing {
     @Column(nullable = false)
     private Double listingPrice;
 
-    @Column(nullable = false)
-    private String listingStatus;
 
     @Column(nullable = false)
     private LocalDateTime listedAt;
@@ -54,7 +52,9 @@ public class Listing {
         this.listingId = listingId;
     }
 
-    public int getUserId() {return userId;}
+    public int getUserId() {
+        User newuser;
+        return userId;}
 
     public void setUserId(int userId){ this.userId = userId;}
 
@@ -90,20 +90,19 @@ public class Listing {
         this.listingPrice = listingPrice;
     }
 
-    public String getListingStatus() {
-        return listingStatus;
-    }
-
-    public void setListingStatus(String listingStatus) {
-        this.listingStatus = listingStatus;
-    }
-
     public LocalDateTime getListedAt() {
         return listedAt;
     }
 
     public void setListedAt(LocalDateTime listedAt) {
         this.listedAt = LocalDateTime.now();
+    }
+
+    @PrePersist
+    public void preListingAt(){
+        if(this.listedAt == null) {
+            this.listedAt = LocalDateTime.now();
+        }
     }
 
     public int getCreatedBy() {
