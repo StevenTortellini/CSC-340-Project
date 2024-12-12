@@ -11,7 +11,7 @@ import lombok.Data;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
     private String username;
     private String email;
     private String password;
@@ -25,6 +25,10 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public int getId() { return id;}
+
+    public void setId(int id) { this.id = id;}
 
     public String getUsername() {
         return username;

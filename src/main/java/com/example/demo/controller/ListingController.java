@@ -1,9 +1,10 @@
 package com.example.demo.controller;
 
-import com.example.demo.model.Listing;
-import com.example.demo.service.ListingService;
+import com.example.demo.model.*;
+import com.example.demo.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.http.HttpStatus;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -15,6 +16,9 @@ public class ListingController {
     @Autowired
     private ListingService listingService;
 
+    @Autowired
+    private UserService userService;
+
 
     @GetMapping("/all")
     public String getAllListings(Model model) {
@@ -22,23 +26,33 @@ public class ListingController {
         return "listings";
     }
 
-    @GetMapping("/{id}")
-    public String getListingById(@PathVariable int id, Model model) {
-        model.addAttribute("listing", listingService.getListingById(id));
-        return "listings";
+    @GetMapping("/listingId/{id}/userId/{userId}")
+    public String getListingById(@PathVariable int listingId, @PathVariable int userId, Model model) {
+        model.addAttribute("listing", listingService.getListingById(listingId));
+        model.addAttribute("user", userService.getUserByUserId(userId));
+        return "indivListing";
     }
 
     @GetMapping("/createForm")
-    public String showCreateForm() {
-        return "listings";
+    public String listingForm(Model model) {
+        Listing newListing = new Listing();
+        int id = newListing.getUserId();
+        newListing.setStatus(0);
+        model.addAttribute("listing", newListing);
+        model.addAttribute("user", id);
+        return "sellpage";
     }
 
+    //@RequestParam("productImage") MultipartFile productImage
     @PostMapping("/new")
-    public String createListing(@ModelAttribute Listing listing, @RequestParam("productImage") MultipartFile productImage) {
-        listingService.addNewListing(listing, productImage); // Service handles image saving
-        System.out.println("Listing Name: " + listing.getListingName());
-        System.out.println("Image File: " + productImage.getOriginalFilename());
-        return "redirect:/listings/all";
+    public String createListing(@ModelAttribute("listing") Listing listing) {
+        User user = userService.getUserByUserId(listing.getUserId());
+        if (user == null) {
+            throw new IllegalArgumentException("User not found for ID: " + listing.getUserId());
+        }
+        listing.setUsername(user.getUsername());
+        int listingId = listingService.createListing(listing);
+        return "redirect:/listings/listingId/" + listingId + "/userId/" + listing.getUserId();
     }
 
 

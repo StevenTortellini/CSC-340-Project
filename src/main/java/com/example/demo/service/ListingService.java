@@ -24,19 +24,13 @@ public class ListingService {
         return repo.findById(listId).orElse(null);
     }
 
-    public void addNewListing(Listing listing, MultipartFile productImage){
-        try {
-            byte[] imageBytes = productImage.getBytes();
-            listing.setImageData(imageBytes);
-        } catch (Exception e) {
-            throw new RuntimeException("Failed to save image", e);
-        }
-        listing.setListedAt(LocalDateTime.now());
+    public int createListing(Listing listing){
         repo.save(listing);
+        return listing.getListingId();
     }
 
-    public String getImageBase64(byte[] imageData) {
-        return Base64.getEncoder().encodeToString(imageData);
+    public List<Listing> queryByUserId(int userId){
+        return repo.queryByUserId(userId);
     }
 
     public void updateListing(int id,Listing listing){

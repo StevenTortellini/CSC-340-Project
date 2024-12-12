@@ -14,6 +14,12 @@ public class Listing {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int listingId;
 
+    private int userId;
+
+    private int status; // 0 = Not Sold 1 = Sold
+
+    private String username;
+
     @Column(nullable = false)
     private String listingName;
 
@@ -47,6 +53,18 @@ public class Listing {
     public void setListingId(int listingId) {
         this.listingId = listingId;
     }
+
+    public int getUserId() {return userId;}
+
+    public void setUserId(int userId){ this.userId = userId;}
+
+    public int getStatus() { return status;}
+
+    public void setStatus(int status) {this.status = status;}
+
+    public String getUsername(){ return username;}
+
+    public void setUsername(String username){ this.username = username;}
 
     public String getListingName() {
         return listingName;
