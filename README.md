@@ -20,7 +20,8 @@ To run this program you will need to ensure that you have the "mvc_app_db" in yo
 
 ## System Requirements Specification (SRS)
 
-[design document V2 CSC340.pdf](https://github.com/user-attachments/files/18116994/design.document.V2.CSC340.pdf)
+[design.document.V2.CSC340_.pdf](https://github.com/user-attachments/files/18118106/design.document.V2.CSC340_.pdf)
+
 
 
 ---
