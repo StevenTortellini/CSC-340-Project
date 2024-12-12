@@ -1,9 +1,6 @@
 package com.example.demo.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Entity
@@ -15,6 +12,8 @@ public class User {
     private String username;
     private String email;
     private String password;
+
+
 
     // Other fields, constructors, getters, and setters
 
@@ -30,9 +29,7 @@ public class User {
 
     public void setId(int id) { this.id = id;}
 
-    public String getUsername() {
-        return username;
-    }
+    public String getUsername() {return username;}
 
     public void setUsername(String username) {
         this.username = username;

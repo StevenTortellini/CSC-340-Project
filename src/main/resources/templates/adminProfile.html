@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>User Profile</title>
+
+  <!-- Custom fonts and styles -->
+  <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  <link href="../css/sb-admin-2.min.css" rel="stylesheet">
+
+  <style>
+    /* Ensure body and html take full height */
+    html, body {
+      height: 100%;
+    }
+
+    /* Flexbox centering */
+    .full-height-center {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: calc(100vh - 56px); /* Subtract the navbar height (56px) */
+    }
+  </style>
+</head>
+
+<body class="bg-gradient-light">
+
+
+
+
+<!-- Profile Section (Centered) -->
+<div class="container full-height-center">
+  <div class="row justify-content-center">
+    <div class="col-md-50">
+      <div class="card shadow mb-4">
+        <div class="card-header py-3">
+          <h6 class="m-0 font-weight-bold text-primary">User Profile</h6>
+        </div>
+        <div class="card-body">
+
+          <!-- Profile Picture Section -->
+          <div class="text-center mb-4">
+            <img src="../img/admin.jpg" class="rounded-circle img-fluid" alt="User Profile Picture">
+            <br><br>
+
+          </div>
+
+          <!-- Edit Name Section -->
+          <form action="/edit" method="post">
+            <div class="form-group">
+              <label for="userName">Name</label>
+              <input type="text" class="form-control" id="userName" placeholder="" th:value="${admin.username}">
+            </div>
+            <div class="form-group">
+              <label for="userName">Email</label>
+              <input type="text" class="form-control" id="userName" placeholder="" th:value="${admin.email}">
+            </div>
+            <div class="form-group">
+              <label for="userName">Password</label>
+              <input type="text" class="form-control" id="userName" placeholder="" th:value="${admin.password}">
+            </div>
+
+            <!-- Save Changes Button -->
+            <button type="submit" class="btn btn-primary"><a style="color: azure;" href="index.html">Save Changes</a></button>
+          </form>
+
+          <hr>
+
+          <!-- Back button -->
+          <div class="text-center">
+            <a href="/index" class="btn btn-secondary">Back</a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap core JavaScript -->
+<script src="../vendor/jquery/jquery.min.js"></script>
+<script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+<script src="../js/sb-admin-2.min.js"></script>
+
+</body>
+
+</html>

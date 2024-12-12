@@ -56,4 +56,5 @@ public class ReportController {
         // Redirect to home or another page after successful submission
         return "redirect:/home"; // Return a view that displays success
     }
+
 }
