@@ -22,7 +22,7 @@ public class ListingController {
     private UserService userService;
 
 
-    @GetMapping("/all")
+    @GetMapping("/allListings")
     public String getAllListings(Model model) {
         model.addAttribute("listingList", listingService.getAllListings());
         return "listings";
