@@ -18,8 +18,10 @@
 To run this program you will need to ensure that you have the "mvc_app_db" in your MySQL. Simply just run the DemoApplication Java program. A default account with the Username:user and Password: user is there but you are encouraged to create your own account to see the functionality of it. After Logging in you should have access to all features within our program. 
 
 
+
 ## System Requirements Specification (SRS)
-[YouSellSRS.pdf](https://github.com/user-attachments/files/18121056/YouSellSRS.pdf)
+[YouSellSRS.pdf](https://github.com/user-attachments/files/18121249/YouSellSRS.pdf)
+
 
 
 
