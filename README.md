@@ -19,8 +19,8 @@ To run this program you will need to ensure that you have the "mvc_app_db" in yo
 
 
 ## System Requirements Specification (SRS)
+[YouSellSRS.pdf](https://github.com/user-attachments/files/18120997/YouSellSRS.pdf)
 
-[design.document.V2.CSC340_.pdf](https://github.com/user-attachments/files/18118106/design.document.V2.CSC340_.pdf)
 
 
 
